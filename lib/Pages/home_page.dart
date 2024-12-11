@@ -15,7 +15,8 @@ class HomePage extends StatelessWidget {
         child: Container(
           height: _deviceHeight,
           width: _deviceWidth,
-          child: _moonText(),
+          padding: EdgeInsets.symmetric(horizontal: _deviceWidth * 0.05),
+          child: _stationDropdown(),
         ),
       ),
     );
@@ -39,6 +40,28 @@ class HomePage extends StatelessWidget {
           fit: BoxFit.contain,
           image: AssetImage("./assets/images/moon.png"),
         ),
+      ),
+    );
+  }
+
+  Widget _stationDropdown() {
+    List<DropdownMenuItem<String>> _items = [
+      'India Space Station',
+      'Spacex Space Station',
+      'Nasa Space Station',
+    ].map(
+      (e) {
+        return DropdownMenuItem(
+          value: e,
+          child: Text(e),
+        );
+      },
+    ).toList();
+
+    return Container(
+      child: DropdownButton(
+        onChanged: (_) {},
+        items: _items,
       ),
     );
   }
