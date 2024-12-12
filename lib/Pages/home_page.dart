@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:go_moon/widgets/dropdown_buttons.dart';
 
 class HomePage extends StatelessWidget {
   late double _deviceWidth, _deviceHeight;
@@ -52,23 +53,13 @@ class HomePage extends StatelessWidget {
   }
 
   Widget _stationDropdown() {
-    List<String> _items = [
-      'India Space Station',
-      'Spacex Space Station',
-      'Nasa Space Station',
-    ];
-    return Container(
-      child: DropdownButton(
-        onChanged: (_) {},
-        items: _items.map(
-          (e) {
-            return DropdownMenuItem(
-              value: e,
-              child: Text(e),
-            );
-          },
-        ).toList(),
-      ),
+    return DropdownButtons(
+      values: const [
+        'India Space Station',
+        'Spacex Space Station',
+        'Nasa Space Station',
+      ],
+      widgetWidth: _deviceWidth,
     );
   }
 }
