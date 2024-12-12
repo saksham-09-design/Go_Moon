@@ -16,7 +16,14 @@ class HomePage extends StatelessWidget {
           height: _deviceHeight,
           width: _deviceWidth,
           padding: EdgeInsets.symmetric(horizontal: _deviceWidth * 0.05),
-          child: _stationDropdown(),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              _moonText(),
+              _stationDropdown(),
+            ],
+          ),
         ),
       ),
     );
@@ -45,23 +52,22 @@ class HomePage extends StatelessWidget {
   }
 
   Widget _stationDropdown() {
-    List<DropdownMenuItem<String>> _items = [
+    List<String> _items = [
       'India Space Station',
       'Spacex Space Station',
       'Nasa Space Station',
-    ].map(
-      (e) {
-        return DropdownMenuItem(
-          value: e,
-          child: Text(e),
-        );
-      },
-    ).toList();
-
+    ];
     return Container(
       child: DropdownButton(
         onChanged: (_) {},
-        items: _items,
+        items: _items.map(
+          (e) {
+            return DropdownMenuItem(
+              value: e,
+              child: Text(e),
+            );
+          },
+        ).toList(),
       ),
     );
   }
