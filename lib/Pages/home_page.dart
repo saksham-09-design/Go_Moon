@@ -23,6 +23,8 @@ class HomePage extends StatelessWidget {
             children: [
               _moonText(),
               _stationDropdown(),
+              _travellerCount(),
+              _ticketType(),
             ],
           ),
         ),
@@ -60,6 +62,30 @@ class HomePage extends StatelessWidget {
         'Nasa Space Station',
       ],
       widgetWidth: _deviceWidth,
+    );
+  }
+
+  Widget _travellerCount() {
+    return DropdownButtons(
+      values: const [
+        '1',
+        '2',
+        '3',
+        '4',
+        '5',
+      ],
+      widgetWidth: _deviceWidth * 0.45,
+    );
+  }
+
+  Widget _ticketType() {
+    return DropdownButtons(
+      values: const [
+        'Economy',
+        'Business',
+        'General',
+      ],
+      widgetWidth: _deviceWidth * 0.45,
     );
   }
 }
