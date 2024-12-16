@@ -22,8 +22,7 @@ class HomePage extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               _moonText(),
-              _stationDropdown(),
-              _travellerInfo(),
+              _bookRide(),
             ],
           ),
         ),
@@ -64,8 +63,26 @@ class HomePage extends StatelessWidget {
     );
   }
 
+  Widget _bookRide() {
+    return Container(
+      height: _deviceHeight * 0.25,
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        mainAxisSize: MainAxisSize.max,
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          _stationDropdown(),
+          _travellerInfo(),
+        ],
+      ),
+    );
+  }
+
   Widget _travellerInfo() {
     return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      mainAxisSize: MainAxisSize.max,
+      crossAxisAlignment: CrossAxisAlignment.center,
       children: [
         DropdownButtons(
           values: const [
@@ -75,7 +92,7 @@ class HomePage extends StatelessWidget {
             '4',
             '5',
           ],
-          widgetWidth: _deviceWidth * 0.45,
+          widgetWidth: _deviceWidth * 0.42,
         ),
         DropdownButtons(
           values: const [
@@ -83,7 +100,7 @@ class HomePage extends StatelessWidget {
             'Business',
             'General',
           ],
-          widgetWidth: _deviceWidth * 0.45,
+          widgetWidth: _deviceWidth * 0.42,
         ),
       ],
     );
