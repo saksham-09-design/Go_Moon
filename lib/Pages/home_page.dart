@@ -65,7 +65,8 @@ class HomePage extends StatelessWidget {
 
   Widget _bookRide() {
     return Container(
-      height: _deviceHeight * 0.25,
+      margin: EdgeInsets.only(bottom: _deviceHeight * 0.01),
+      height: _deviceHeight * 0.30,
       child: Column(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         mainAxisSize: MainAxisSize.max,
@@ -73,7 +74,28 @@ class HomePage extends StatelessWidget {
         children: [
           _stationDropdown(),
           _travellerInfo(),
+          _bookRideButton(),
         ],
+      ),
+    );
+  }
+
+  Widget _bookRideButton() {
+    return Container(
+      width: _deviceWidth * .90,
+      decoration: BoxDecoration(
+        color: Colors.white,
+        borderRadius: BorderRadius.circular(10),
+      ),
+      child: MaterialButton(
+        onPressed: () {},
+        child: const Text(
+          "Book a Ride!",
+          style: TextStyle(
+            color: Colors.black,
+            fontSize: 17,
+          ),
+        ),
       ),
     );
   }
