@@ -17,12 +17,24 @@ class HomePage extends StatelessWidget {
           height: _deviceHeight,
           width: _deviceWidth,
           padding: EdgeInsets.symmetric(horizontal: _deviceWidth * 0.05),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            crossAxisAlignment: CrossAxisAlignment.start,
+          child: Stack(
             children: [
-              _moonText(),
-              _bookRide(),
+              Align(
+                alignment: Alignment.centerRight,
+                child: _moonImage(),
+              ),
+              Column(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  _moonText(),
+                  _bookRide(),
+                ],
+              ),
+              Align(
+                alignment: Alignment.centerLeft,
+                child: _astroImage(),
+              ),
             ],
           ),
         ),
@@ -41,8 +53,23 @@ class HomePage extends StatelessWidget {
     );
   }
 
+  Widget _astroImage() {
+    return Container(
+      height: _deviceHeight * .40,
+      width: _deviceHeight * .40,
+      decoration: const BoxDecoration(
+        image: DecorationImage(
+          fit: BoxFit.contain,
+          image: AssetImage("assets/images/astro.png"),
+        ),
+      ),
+    );
+  }
+
   Widget _moonImage() {
     return Container(
+      height: _deviceHeight * .90,
+      width: _deviceWidth * .90,
       decoration: const BoxDecoration(
         image: DecorationImage(
           fit: BoxFit.contain,
